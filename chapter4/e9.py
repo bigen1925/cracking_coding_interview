@@ -12,12 +12,23 @@ class TreeE9(BinaryTree):
     def _listing(
         self, selectable: List[BinaryNode], prefix: List[Any]
     ) -> List[List[Any]]:
+        """
+        上にあるノードから追加されているはずなので、上にあるノードからリストに加えていくと、
+        木を導くリストが作れる
+
+        selectable 次に選択するノード候補
+        prefix これまで選択してきたノード
+        """
+
+        # 次に選択するノードがなければそのまま返す
         if not selectable:
             return [prefix]
 
         ls = []
 
+        # 次のノード候補を順に選択し、それぞれのノードを選択した時の全ての選択肢をリストアップしてくっつけていく
         for i, node in enumerate(selectable):
+            # selectableからノードを一つ選んで候補から削除し、その子ノードを次のノード候補に追加する
             next_selectable = copy(selectable)
             del next_selectable[i]
             if node.has_right_child:
@@ -25,9 +36,11 @@ class TreeE9(BinaryTree):
             if node.has_left_child:
                 next_selectable.append(node.left_child)
 
+            # 選んだノードをprefixに追加する
             next_prefix = copy(prefix)
             next_prefix.append(node.data)
 
+            # このノードを選択した時のリストを全て出し、くっつける
             ls.extend(self._listing(next_selectable, next_prefix))
 
         return ls

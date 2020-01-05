@@ -23,7 +23,11 @@ class GraphE7(Graph):
             dependent_projects[dependence[1]] = True
 
         # 依存関係を持たないプロジェクトをdoneとする
-        for project in [project for project, is_dependent in dependent_projects.items() if is_dependent is False]:
+        for project in [
+            project
+            for project, is_dependent in dependent_projects.items()
+            if is_dependent is False
+        ]:
             are_done[project] = True
             ordered_projects.append(project)
 
@@ -31,7 +35,9 @@ class GraphE7(Graph):
         while len(ordered_projects) < len(projects):
             # undoneなプロジェクトのうち、依存関係が全て満たされているものをdoneにする
             done_projects_exists = False
-            for project in [project for project, is_done in are_done.items() if is_done is False]:
+            for project in [
+                project for project, is_done in are_done.items() if is_done is False
+            ]:
                 # 依存関係にあるプロジェクトでundoneのものがなければ、doneとする
                 if not [
                     dependence

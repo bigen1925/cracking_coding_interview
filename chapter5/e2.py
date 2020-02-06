@@ -12,6 +12,7 @@ def double_to_binary_string(num: float):
             string = "ERROR."
             break
 
+        # 2進数表現のときの上から2桁目は、2倍すると最上桁になる
         num = num * 2
         if num > 1:
             string += 1

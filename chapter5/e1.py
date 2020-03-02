@@ -26,7 +26,7 @@ def insertion(n: int, m: int, i: int, j: int):
     return output
 
 
-class TestMain:
+class TestMain(unittest.TestCase):
     def test_it(self):
         n = 0b11110000000000000000000000000000
         m = 0b00000000000000000000000001110011

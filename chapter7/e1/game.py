@@ -3,7 +3,7 @@ from typing import Iterable, List, Optional
 
 from chapter7.e1.card import Suit, CardNumber, Card
 from chapter7.e1.deck import Deck
-from chapter7.e1.hand import BlackJackHand
+from chapter7.e1.hand import BlackJackHand, Hand
 
 
 class Player:
@@ -21,7 +21,7 @@ class Player:
     def evaluate_hand(self):
         return self.hand.value
 
-    def set_hand(self, hand: "Hand") -> "Player":
+    def set_hand(self, hand: Hand) -> "Player":
         self.hand = hand
         return self
 

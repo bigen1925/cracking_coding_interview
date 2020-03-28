@@ -28,3 +28,24 @@ class Card:
     def __init__(self, suit: Suit, number: CardNumber):
         self.suit = suit
         self.number = number
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return f"<{self.suit_name} {self.number}>"
+
+    @property
+    def suit_name(self):
+        if self.suit is Suit.SPADE:
+            suit_name = "SPADE"
+        elif self.suit is Suit.CLUB:
+            suit_name = "CLUB"
+        elif self.suit is Suit.DIAMOND:
+            suit_name = "DIAMOND"
+        elif self.suit is Suit.HEART:
+            suit_name = "HEART"
+        else:
+            raise ValueError("Unknown Suit")
+
+        return suit_name

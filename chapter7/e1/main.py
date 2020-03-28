@@ -17,8 +17,10 @@ def main():
     player2.draw(deck).draw(deck).draw(deck)  # 3枚引く
 
     print("####### Battle! ########")
-    print(f"player1: {player1.evaluate_hand()}")
-    print(f"player2: {player2.evaluate_hand()}")
+    print(f"player1's hand: {[card for card in player1.hand]}")
+    print(f"player2's hand: {[card for card in player2.hand]}")
+    print(f"player1: {player1.evaluate_hand()} points")
+    print(f"player2: {player2.evaluate_hand()} points")
     print(
         f"Win for player{1 if player1.evaluate_hand() > player2.evaluate_hand() else 2}!!!!!!"
     )

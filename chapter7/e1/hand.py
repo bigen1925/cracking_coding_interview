@@ -16,6 +16,9 @@ class Hand(ABC):
         for card in cards:
             self.add_card(card)
 
+    def __iter__(self):
+        return iter(self.cards)
+
     def add_card(self, card: Card) -> "Hand":
         self.cards.append(card)
         return self

@@ -1,4 +1,5 @@
 from collections import deque
+from sys import argv
 from typing import List
 
 
@@ -76,4 +77,5 @@ class HanoiSolver:
 
 
 if __name__ == '__main__':
-    HanoiSolver(4).solve()
+    n = int(argv[1])
+    HanoiSolver(n).solve()

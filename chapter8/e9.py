@@ -10,9 +10,9 @@ class Solver:
         self.call_count = 0
 
     def valid_combinations(self, n: int) -> Set[str]:
-        self.call_count += 1
         if n == 0:
             return {""}
+        self.call_count += 1
 
         combinations = set()
         for i in range(n):
@@ -41,9 +41,9 @@ class CacheSolver:
         if n in self.cache:
             return self.cache[n]
 
-        self.call_count += 1
         if n == 0:
             return {""}
+        self.call_count += 1
 
         combinations = set()
         for i in range(n):

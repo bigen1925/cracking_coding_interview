@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Position(tuple):
+class Queen(tuple):
     @property
     def row(self):
         return self[0]
@@ -11,7 +11,7 @@ class Position(tuple):
         return self[1]
 
 
-def solve(queens: List[Position] = None):
+def solve(queens: List[Queen] = None):
     if queens is None:
         queens = []
 
@@ -23,14 +23,14 @@ def solve(queens: List[Position] = None):
 
     for col in cols:
         if is_positionable(row, col, queens):
-            new_queens = queens + [Position([row, col])]
+            new_queens = queens + [Queen([row, col])]
             if result := solve(new_queens):
                 return result
 
     return None
 
 
-def is_positionable(row, col, queens: List[Position]) -> bool:
+def is_positionable(row, col, queens: List[Queen]) -> bool:
     for queen in queens:
         if col == queen.col:
             return False
